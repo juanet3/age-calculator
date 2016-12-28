@@ -4,48 +4,26 @@ It's a amazing java library that simplifies the calculation of the age from birt
 
 How
 ---
-
+* Default constructor gets current time as reference date
 ```java
-QNCache cache = new QNCacheBuilder().createQNCache();
-
-cache.set("key", "value", 60 * 1000); // It can store things for a minute,
-cache.set("key", "value", 60 * 60 * 1000); // for an hour,
-cache.set("key", "value", 0); // or forever.
-cache.set("key", "value"); // And also for the short version of forever.
-
-cache.get("key"); // It can get them again,
-cache.remove("key"); // and remove it if you want.
-
-cache.get("unExistingKey"); // If something doesn't exists, it returns null
-cache.get("tooOldKey"); // The same if a key is too old
-
-cache.clear(); // You can also clean it,
-cache.size(); // and ask it how many elements it has
-
-QNCache<String> stringCache = new QNCacheBuilder().createQNCache(); //You can also make it typesafe
-stringCache.set("key", 42); //so this line does not compile :)
+AgeCalculator ageCalculator = new AgeCalculator();
+String myAge = ageCalculator.calculateAge("1974-11-20")
 ```
 
-Let's talk about the memory
----------------------------
-By default, the cache stores a reference to all stored instances, doesn't matter if they're fresh or not. If you plan to store huge instances, like an Android's Bitmap, you can create it with an auto releaser. Then the cache will remove the old elements after the given amount of time.
-
+* Custom constructor accept as reference date 3 variable types: String, Date and LocalDate
 ```java
-QNCache cache = new QNCacheBuilder().setAutoReleaseInSeconds(1).createQNCache(); //frees the memory every second
-QNCache cache = new QNCacheBuilder().setAutoReleaseInSeconds(60).createQNCache(); //frees the memory every minute
-QNCache cache = new QNCacheBuilder().setAutoReleaseInSeconds(60*60).createQNCache(); //frees the memory every hour
-QNCache cache = new QNCacheBuilder().createQNCache(); //will never free the invalidated items from memory
+AgeCalculator ageCalculator = new AgeCalculator("2016-12-28");
+String myAge = ageCalculator.calculateAge("1974-11-20")
 ```
-
-Are the keys case sensitive?
----------------------------
-By default, yes. But you can also specify it at building time.
-
 ```java
+LocalDate referenceDate = LocalDate.parse("2016-12-28");
+AgeCalculator ageCalculator = new AgeCalculator(referenceDate);
+String myAge = ageCalculator.calculateAge("1974-11-20")
+```
 
 #Download
 
-* Get <a href="https://github.com/Fewlaps/quitnow-cache/releases/download/v3.0.0/quitnow-cache-3.0.0.jar">the latest .jar</a>
+* Get <a href="https://github.com/juanet3/age-calculator/releases/download/1.0.0/age-calculator-1.0.0.jar">the latest .jar</a>
 
 * Grab via Gradle:
 ```groovy
