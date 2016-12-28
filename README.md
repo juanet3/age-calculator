@@ -1,6 +1,4 @@
-# age-calculator
-
-# [Ullahbluh] Age Calculator
+# Age Calculator
 
 It's a amazing java library that simplifies the calculation of the age from birthday.
 
