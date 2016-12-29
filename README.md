@@ -1,4 +1,6 @@
 # Age Calculator
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/961f51107fbf4ccfbdfb9971128b3bec)](https://www.codacy.com/app/juan-urenya/age-calculator?utm_source=github.com&utm_medium=referral&utm_content=juanet3/age-calculator&utm_campaign=badger)
+
 
 It's a amazing java library that simplifies the calculation of the age from birthday.
 
