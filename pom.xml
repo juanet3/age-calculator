@@ -27,11 +27,17 @@
 		</dependency>
 	</dependencies>  
   
+	<distributionManagement>
+		<repository>
+			<id>bintray-ullahbluh-com-age-calculator</id>
+			<name>ullahbluh-com-age-calculator</name>
+			<url>https://api.bintray.com/maven/ullahbluh-com/age-calculator/age-calculator/;publish=1</url>
+		</repository>
+	</distributionManagement>
 
 	<build>
-		<finalName>age-calculator</finalName>
+		<finalName>${project.artifactId}-${project.version}</finalName>
 		<plugins>
-
 			<plugin>
 		        <groupId>org.apache.maven.plugins</groupId>
 		        <artifactId>maven-compiler-plugin</artifactId>

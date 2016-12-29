@@ -29,22 +29,36 @@ public class AgeCalculator {
 	
 	public String calculateAge(String birthday) {
 		String age = null;
-
-		Date birthdayDate = parseStringToDate(birthday);
-		if (null != birthdayDate) {
-			LocalDate birthLocalDate = LocalDate.parse(sdf.format(birthdayDate)); 
-			Period period = Period.between(birthLocalDate, now);
-			age = String.valueOf(period.getYears());
+		if (null != birthday) {
+			Date birthdayDate = parseStringToDate(birthday);
+			age = calculateAge(birthdayDate);
 		}
-
 		return age;
 	}
 
+	public String calculateAge(Date birthday) {
+		String age = null;
+		if (null != birthday) {
+			LocalDate birthLocalDate = LocalDate.parse(sdf.format(birthday)); 
+			age = calculateAge(birthLocalDate);
+		}
+		return age;
+	}
+	
+	public String calculateAge(LocalDate birthday) {
+		String age = null;
+		if (null != birthday) {
+			Period period = Period.between(birthday, now);
+			age = String.valueOf(period.getYears());	
+		}
+		return age;
+	}
+	
 	private void setNow(Date referenceDate) {
 		now = LocalDate.parse(sdf.format(referenceDate));
 	}
 	
-	private Date parseStringToDate(String referenceStringDate) {
+	public static Date parseStringToDate(String referenceStringDate) {
 		Date referenceDate = null;
 		
 		if (null != referenceStringDate) {
