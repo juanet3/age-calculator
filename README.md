@@ -10,26 +10,38 @@ AgeCalculator ageCalculator = new AgeCalculator();
 String myAge = ageCalculator.calculateAge("1974-11-20")
 ```
 
-* Custom constructor accept as reference date 3 variable types: String, Date and LocalDate
+* Custom constructor and calculateAge method accept as reference date 3 variable types: String, Date and LocalDate
 ```java
+// with String params
 AgeCalculator ageCalculator = new AgeCalculator("2016-12-28");
 String myAge = ageCalculator.calculateAge("1974-11-20")
-```
-```java
+
+// with LocalDate params
 LocalDate referenceDate = LocalDate.parse("2016-12-28");
+LocalDate birthday = LocalDate.parse("1974-11-20");
 AgeCalculator ageCalculator = new AgeCalculator(referenceDate);
-String myAge = ageCalculator.calculateAge("1974-11-20")
+String myAge = ageCalculator.calculateAge(birthday)
+
+// with Date params
+Date referenceDate = AgeCalculator.parseStringToDate(NOW);
+Date birthDay = AgeCalculator.parseStringToDate(FOO_BIRTHDAY);
+AgeCalculator ageCalculator = new AgeCalculator(referenceDate);
+String myAge = ageCalculator.calculateAge(birthday)
 ```
+
+#Specs
+
+* Java 8
 
 #Download
 
-* Get <a href="https://github.com/juanet3/age-calculator/releases/download/1.0.0/age-calculator-1.0.0.jar">the latest .jar</a>
+* Get <a href="https://github.com/juanet3/age-calculator/releases/download/1.0.0/age-calculator-1.1.0.jar">the latest .jar</a>
 
 * Grab via Gradle:
 ```groovy
 repositories { jcenter() }
     
-compile 'com.ullahbluh.tools:age-calculator:1.0.0'
+compile 'com.ullahbluh.tools:age-calculator:1.1.0'
 ```
 
 * Grab via Maven:
@@ -42,7 +54,7 @@ compile 'com.ullahbluh.tools:age-calculator:1.0.0'
 <dependency>
   <groupId>com.ullahbluh.tools</groupId>
   <artifactId>age-calculator</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 </dependency>
 
 ```
